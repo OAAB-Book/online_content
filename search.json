@@ -18,7 +18,7 @@
     "href": "chapters/chapter_04/index.html",
     "title": "第四章網路資源",
     "section": "",
-    "text": "#註解編號\n連結\n附註說明\n\n\n\n\n4-1\nhttps://github.com/dotnet/interactive\n\n\n\n4-2\nhttps://jupyter.org\n\n\n\n4-3\nhttps://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode\nPolyglot Notebooks擴充套件下載網頁\n\n\n4-4\nhttps://code.visualstudio.com/docs/languages/polyglot\nVisual Studio Code的Polyglot Notebooks擴充套件官方說明\n\n\n4-5\nhttps://github.com/zufuliu/notepad2\n有支援 C#, F#, ASP .NET 的程式碼syntax highlight的開源notepad2 分支版本\n\n\n4-6\nhttps://github.com/dotnet/interactive/blob/main/docs/kernels-overview.md\n.NET Interactive的Kernel機制解說"
+    "text": "註解編號\n連結\n附註說明\n\n\n\n\n4-1\nhttps://github.com/dotnet/interactive\n\n\n\n4-2\nhttps://jupyter.org\n\n\n\n4-3\nhttps://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode\nPolyglot Notebooks擴充套件下載網頁\n\n\n4-4\nhttps://code.visualstudio.com/docs/languages/polyglot\nVisual Studio Code的Polyglot Notebooks擴充套件官方說明\n\n\n4-5\nhttps://github.com/zufuliu/notepad2\n有支援 C#, F#, ASP .NET 的程式碼syntax highlight的開源notepad2 分支版本\n\n\n4-6\nhttps://github.com/dotnet/interactive/blob/main/docs/kernels-overview.md\n.NET Interactive的Kernel機制解說"
   },
   {
     "objectID": "chapters/chapter_04/index.html#需安裝軟體",
@@ -39,14 +39,14 @@
     "href": "chapters/chapter_01/index.html",
     "title": "第一章網路資源",
     "section": "",
-    "text": "相關網路連結\n\n\n\n#註解編號\n連結\n附註說明\n\n\n\n\n1-1\nhttp://aka.ms/orleans\nMicrosoft Orleans GitHub\n\n\n1-2\nhttps://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-7-preview-1/\nBlog announcement\n\n\n1-3\nhttps://youtu.be/-4BelRbFOVo\nNext Steps for Distributed Programming with .NET and Orleans\n\n\n1-4\nhttps://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out\n\n\n\n\n\n\n相關線上內容\n\nMicrosoft Orleans和其他類似框架的比較"
+    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n1-1\nhttp://aka.ms/orleans\nMicrosoft Orleans GitHub\n\n\n1-2\nhttps://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-7-preview-1/\nBlog announcement\n\n\n1-3\nhttps://youtu.be/-4BelRbFOVo\nNext Steps for Distributed Programming with .NET and Orleans\n\n\n1-4\nhttps://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out\n\n\n\n\n\n\n相關線上內容\n\nMicrosoft Orleans和其他類似框架的比較"
   },
   {
     "objectID": "chapters/chapter_02/index.html",
     "href": "chapters/chapter_02/index.html",
     "title": "第二章網路資源",
     "section": "",
-    "text": "相關網路連結\n\n\n\n#註解編號\n連結\n附註說明\n\n\n\n\n2-1\nhttps://www.brianstorti.com/the-actor-model\n\n\n\n2-2\nhttps://www.developer.com/design/down-and-dirty-understanding-the-actor-model/"
+    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n2-1\nhttps://www.brianstorti.com/the-actor-model\n\n\n\n2-2\nhttps://www.developer.com/design/down-and-dirty-understanding-the-actor-model/"
   },
   {
     "objectID": "chapters/chapter_05/online_helloworld_lab.html",
