@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Microsoft Orleans：加速Azure的ASP.NET Core雲端應用開發推進器 – index</title>
+<title>Microsoft Orleans：加速Azure的ASP.NET Core雲端應用開發推進器 - 第二章網路資源</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,6 +64,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Microsoft Orleans：加速Azure的ASP.NET Core雲端應用開發推進器 - 第二章網路資源">
+<meta property="og:site-name" content="Microsoft Orleans：加速Azure的ASP.NET Core雲端應用開發推進器">
+<meta property="og:locale" content="zh_TW">
 </head>
 
 <body class="nav-sidebar floating fullcontent">
@@ -75,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/chapter_01/index.html">紙本章節列表</a></li><li class="breadcrumb-item"><a href="../../chapters/chapter_07/index.html">第七章</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/chapter_01/index.html">紙本章節列表</a></li><li class="breadcrumb-item"><a href="../../chapters/chapter_03/index.html">第三章</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -127,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/chapter_03/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/chapter_03/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">第三章</span></a>
   </div>
 </li>
@@ -151,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/chapter_07/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/chapter_07/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">第七章</span></a>
   </div>
 </li>
@@ -166,10 +169,114 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">第二章網路資源</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="相關網路連結" class="level1">
+<h1>相關網路連結</h1>
+<table class="table">
+<thead>
+<tr class="header">
+<th><strong>註解編號</strong></th>
+<th>連結</th>
+<th>附註說明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>3-1</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/orleans/overview#what-are-grains" class="uri">https://learn.microsoft.com/dotnet/orleans/overview#what-are-grains</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>3-2</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/api/orleans.grain" class="uri">https://learn.microsoft.com/dotnet/api/orleans.grain</a></td>
+<td>Grain類別的API文件</td>
+</tr>
+<tr class="odd">
+<td><strong>3-3</strong></td>
+<td><a href="https://en.wikipedia.org/wiki/Plain_old_CLR_object" class="uri">https://en.wikipedia.org/wiki/Plain_old_CLR_object</a></td>
+<td>POCO 定義</td>
+</tr>
+<tr class="even">
+<td><strong>3-4</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task" class="uri">https://learn.microsoft.com/dotnet/api/system.threading.tasks.task</a></td>
+<td><code>Task</code>的API文件</td>
+</tr>
+<tr class="odd">
+<td><strong>3-5</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1" class="uri">https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1</a></td>
+<td><code>Task&amp;lt;T&amp;gt;</code>的API文件</td>
+</tr>
+<tr class="even">
+<td><strong>3-6</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask" class="uri">https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask</a></td>
+<td><code>ValueTask</code>的API文件</td>
+</tr>
+<tr class="odd">
+<td><strong>3-7</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1" class="uri">https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1</a></td>
+<td><code>ValueTask&amp;lt;T&amp;gt;</code>的API文件</td>
+</tr>
+<tr class="even">
+<td><strong>3-8</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/api/orleans.igrainwithguidkey" class="uri">https://learn.microsoft.com/dotnet/api/orleans.igrainwithguidkey</a></td>
+<td><code>IGrainWithGuidKey</code>的API文件</td>
+</tr>
+<tr class="odd">
+<td><strong>3-9</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/api/orleans.igrainwithintegerkey" class="uri">https://learn.microsoft.com/dotnet/api/orleans.igrainwithintegerkey</a></td>
+<td><code>IGrainWithIntegerKey</code>的API文件</td>
+</tr>
+<tr class="even">
+<td><strong>3-10</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/api/orleans.igrainwithstringkey" class="uri">https://learn.microsoft.com/dotnet/api/orleans.igrainwithstringkey</a></td>
+<td><code>IGrainWithStringKey</code>的API文件</td>
+</tr>
+<tr class="odd">
+<td><strong>3-11</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/api/orleans.igrainwithguidcompoundkey" class="uri">https://learn.microsoft.com/dotnet/api/orleans.igrainwithguidcompoundkey</a></td>
+<td><code>IGrainWithGuidCompoundKey</code>的API文件</td>
+</tr>
+<tr class="even">
+<td><strong>3-12</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/api/orleans.igrainwithintegercompoundkey" class="uri">https://learn.microsoft.com/dotnet/api/orleans.igrainwithintegercompoundkey</a></td>
+<td><code>IGrainWithIntegerCompoundKey</code>的API文件</td>
+</tr>
+<tr class="odd">
+<td><strong>3-13</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/orleans/grains/stateless-worker-grains" class="uri">https://learn.microsoft.com/dotnet/orleans/grains/stateless-worker-grains</a></td>
+<td>Stateless Worker Grains</td>
+</tr>
+<tr class="even">
+<td><strong>3-14</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/standard/serialization/" class="uri">https://learn.microsoft.com/dotnet/standard/serialization/</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>3-15</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/orleans/resources/nuget-packages#grain-storage-providers" class="uri">https://learn.microsoft.com/dotnet/orleans/resources/nuget-packages#grain-storage-providers</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

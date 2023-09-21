@@ -35,6 +35,13 @@
     "text": "實做練習列表\n\n使用 Visual Studio Code 和 Polyglotm Notebooks 擴充套件測試Grain的RPC方法實做"
   },
   {
+    "objectID": "chapters/chapter_02/index.html",
+    "href": "chapters/chapter_02/index.html",
+    "title": "第二章網路資源",
+    "section": "",
+    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n2-1\nhttps://www.brianstorti.com/the-actor-model\n\n\n\n2-2\nhttps://www.developer.com/design/down-and-dirty-understanding-the-actor-model/"
+  },
+  {
     "objectID": "chapters/chapter_01/index.html",
     "href": "chapters/chapter_01/index.html",
     "title": "第一章網路資源",
@@ -42,11 +49,11 @@
     "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n1-1\nhttp://aka.ms/orleans\nMicrosoft Orleans GitHub\n\n\n1-2\nhttps://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-7-preview-1/\nBlog announcement\n\n\n1-3\nhttps://youtu.be/-4BelRbFOVo\nNext Steps for Distributed Programming with .NET and Orleans\n\n\n1-4\nhttps://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out\n\n\n\n\n\n\n相關線上內容\n\nMicrosoft Orleans和其他類似框架的比較"
   },
   {
-    "objectID": "chapters/chapter_02/index.html",
-    "href": "chapters/chapter_02/index.html",
+    "objectID": "chapters/chapter_03/index.html",
+    "href": "chapters/chapter_03/index.html",
     "title": "第二章網路資源",
     "section": "",
-    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n2-1\nhttps://www.brianstorti.com/the-actor-model\n\n\n\n2-2\nhttps://www.developer.com/design/down-and-dirty-understanding-the-actor-model/"
+    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n3-1\nhttps://learn.microsoft.com/dotnet/orleans/overview#what-are-grains\n\n\n\n3-2\nhttps://learn.microsoft.com/dotnet/api/orleans.grain\nGrain類別的API文件\n\n\n3-3\nhttps://en.wikipedia.org/wiki/Plain_old_CLR_object\nPOCO 定義\n\n\n3-4\nhttps://learn.microsoft.com/dotnet/api/system.threading.tasks.task\nTask的API文件\n\n\n3-5\nhttps://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1\nTask&lt;T&gt;的API文件\n\n\n3-6\nhttps://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask\nValueTask的API文件\n\n\n3-7\nhttps://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1\nValueTask&lt;T&gt;的API文件\n\n\n3-8\nhttps://learn.microsoft.com/dotnet/api/orleans.igrainwithguidkey\nIGrainWithGuidKey的API文件\n\n\n3-9\nhttps://learn.microsoft.com/dotnet/api/orleans.igrainwithintegerkey\nIGrainWithIntegerKey的API文件\n\n\n3-10\nhttps://learn.microsoft.com/dotnet/api/orleans.igrainwithstringkey\nIGrainWithStringKey的API文件\n\n\n3-11\nhttps://learn.microsoft.com/dotnet/api/orleans.igrainwithguidcompoundkey\nIGrainWithGuidCompoundKey的API文件\n\n\n3-12\nhttps://learn.microsoft.com/dotnet/api/orleans.igrainwithintegercompoundkey\nIGrainWithIntegerCompoundKey的API文件\n\n\n3-13\nhttps://learn.microsoft.com/dotnet/orleans/grains/stateless-worker-grains\nStateless Worker Grains\n\n\n3-14\nhttps://learn.microsoft.com/dotnet/standard/serialization/\n\n\n\n3-15\nhttps://learn.microsoft.com/dotnet/orleans/resources/nuget-packages#grain-storage-providers"
   },
   {
     "objectID": "chapters/chapter_05/online_helloworld_lab.html",
