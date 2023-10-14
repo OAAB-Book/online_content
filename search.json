@@ -14,53 +14,60 @@
     "text": "在Visual Studio Code中，按下 Ctrl(Cmd)+Shift+P以便叫出 Command Palette 命令選擇區命令列，然後輸入new notebook以便篩選可用選項：\n\n選擇.NET Interactive: Create new blank notebook，然後按下 Enter。\n選擇要使用的檔案格式，如果需要在非Visual Studio Code的 .NET Interactive這個擴充套件提供的UI中執行，或不需實際執行就能看到內容的場合(如GitHub網頁上)，選擇傳統Jupyter Notebook的 .ipynb 格式，然後按 Enter：\n\n選擇Notebook檔案主要使用的程式語言，此處選 C#，然後按 Enter。\n\n此時空白的Notebook檔案就已建立完成，可以開始撰寫程式碼了。\n\n\n在Notebook檔案中，可以打程式碼按 Ctrl + Enter 執行程式的UI部分，以下簡稱『Code Cell』以方便進行說明。\n\n\n\n\n\n\n首先在昨天程式碼專案的根目錄，建立一個 notebooks 目錄，然後在此目錄內建立一個 .NET Interactive Notebooks檔案。\n建立一個『Code Cell』輸入以下內容，以便安裝Nuget套件：\n#region install Nuget\n//Essential libs for running .NET 6 Generic Host\n#r \"nuget: Microsoft.Extensions.Hosting\"\n#r \"nuget: Microsoft.Extensions.DependencyInjection\"\n\n//Orleans essential dependencies\n#r \"nuget: Microsoft.Orleans.Core\"\n#r \"nuget: Microsoft.Orleans.OrleansRuntime\"\n//Orleans silo server runtime essentials\n#r \"nuget: Microsoft.Orleans.Server\"\n#endregion\n接在後面再建立一個『Code Cell』輸入以下內容，以便引入命名空間(namespace)：\nusing Microsoft.Extensions.Hosting;\nusing Orleans;\nusing Orleans.Runtime;\nusing Orleans.Hosting;\n由於 .NET Interactive的底層C#實作是使用C# Script(.csx檔)，不支援自定義命名空間，因此我們定義RPC介面和Grain實作類別不以把程式碼寫在『Code Cell』裡的方式，而是在Code Cell內用PowerShell命令來呼叫dotnet CLI編譯建置先前已經定義好的Grain實作類別專案：\n#!pwsh\ndotnet build ../src/Grains/RpcDemo.Grains.Greeting/RpcDemo.Grains.Greeting.csproj --nologo --verbosity quiet\n魔術命令(magic command)『#!pwsh』表示此Code Cell中，該標記之後的內容是使用PowerShell來解譯/執行的命令。\n接在後面再建立一個『Code Cell』輸入以下內容，以便載入編譯好的Grain實作類別：\n#r \"../src/Shared/RpcDemo.Interfaces.Hello/bin/Debug/netstandard2.0/RpcDemo.Interfaces.Hello.dll\"\n#r \"../src/Grains/RpcDemo.Grains.Greeting/bin/Debug/net6.0/RpcDemo.Grains.Greeting.dll\"\n接在後面再建立一個『Code Cell』，輸入起始化Orleans Silo的Generic HostBuilder配置程式碼：\nusing RpcDemo.Interfaces.Hello;\nusing RpcDemo.Grains.Greeting;\nvar hostBuilder = Host.CreateDefaultBuilder()\n    .UseOrleans(builder =&gt;\n    {\n        builder.UseLocalhostClustering();\n        builder.ConfigureApplicationParts(parts =&gt; {\n          parts.AddApplicationPart(typeof(IHelloGrain).Assembly).WithReferences();\n          parts.AddApplicationPart(typeof(HelloGrain).Assembly).WithReferences();\n        });\n    });\nMicrosoft Orleans框架提供一個UseOrleans()擴充方法來整合至ASP.NET Core的web服務框架/.NET Generic Host中執行Silo的服務實體，而餵給該方法的Lambda敘述式參數中，第一行UseLocalhostClustering()設定Silo使用本機端測試叢集，第二行呼叫SiloBuilder的 ConfigureApplicationParts() 擴充方法來載入HelloGrain實作類別的Assembly，並且使用另一個 WithReferences() 擴充方法來載入該Grain實作類別的程式中有用到的其他相依類別。\n這裡要注意的是，由於.NET Interactive底層的Nested Kernel機制，所以在.NET Interactive Notebook中宣告的SiloBuilder除了要宣告載入Grain實作類別之外，RPC介面的Interface型別也得要明確寫出載入宣告。\n然後上述的配置無誤的話，呼叫hostBuilder的Build()建置方法來產生一個Generic Host實體，並且呼叫StartAsync()方法來啟動承載本機Silo測試叢集的.NET Generic Host服務實體：\nvar host = hostBuilder.Build();\nawait host.StartAsync();\n再來我們開始配置Orleans呼叫RPC客戶端的ClientBuilder程式碼：\nvar clientBuilder = new ClientBuilder().UseLocalhostClustering();\nclientBuilder.ConfigureApplicationParts(parts=&gt;parts.AddApplicationPart(typeof(IHelloGrain).Assembly));\n與Server端類似，在Client端也有個UseLocalhostClustering()擴充方法設定連結本機端測試叢集的Silo服務，然後也有相對應載入RPC介面的Assembly的機制。\n配置無誤的話，呼叫Build()建置方法產生Orleans Client端物件：\nvar client = clientBuilder.Build();\n和Silo連線：\nawait client.Connect();\n建立HelloGrain實體的Client端參考(RPC proxy)：\nvar helloGrainRpc = client.GetGrain&lt;IHelloGrain&gt;(0);\n呼叫Grain的RPC方法：\nvar greeting = await helloGrainRpc.SayHello(\"Orleans\");\ndisplay(greeting);\n這裡要注意的是，最後一行的 display() 是 .NET Interactive Notebook C# Kernel的特殊函式可印出變數值，執行的結果如下圖所示：\n\n呼叫結束後，如果RPC proxy不再使用時，關閉Client端連線：\nawait client.Close();\n最後記得呼叫StopAsync()方法來關閉.NET Generic Host服務實體：\nawait host.StopAsync();\n\n以上是使用 .NET Interactive Notebook 來撰寫Orleans的範例，這個範例可直接從GitHub的預覽網頁上觀看或下載：\nhttps://github.com/OAAB-Book/OrleansNet6HelloWorld/blob/chapter_04/notebooks/OrleansNet6HelloWorld.ipynb\n範例專案原始檔：\nhttps://github.com/OAAB-Book/OrleansNet6HelloWorld/tree/chapter_04"
   },
   {
+    "objectID": "chapters/chapter_06/index.html",
+    "href": "chapters/chapter_06/index.html",
+    "title": "第6章網路資源",
+    "section": "",
+    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n6-1\nhttps://learn.microsoft.com/dotnet/api/orleans.iclusterclient?view=orleans-3.0\n\n\n\n6-2\nhttps://learn.microsoft.com/dotnet/api/orleans.grain.grainfactory?view=orleans-3.0\n\n\n\n6-3\nhttps://learn.microsoft.com/dotnet/api/orleans.igrainfactory?view=orleans-3.0\n\n\n\n6-4\nhttps://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.generichostextensions.useorleans?view=orleans-3.0\n\n\n\n6-5\nhttps://www.nuget.org/packages/Microsoft.Orleans.TestingHost/3.7.1\n\n\n\n6-6\nhttps://learn.microsoft.com/dotnet/api/orleans.testinghost.testcluster?view=orleans-3.0\n\n\n\n6-7\nhttps://learn.microsoft.com/dotnet/api/orleans.testinghost.testclusterbuilder?view=orleans-3.0\n\n\n\n6-8\nhttps://learn.microsoft.com/dotnet/api/orleans.testinghost.isiloconfigurator?view=orleans-3.0"
+  },
+  {
     "objectID": "chapters/chapter_04/index.html",
     "href": "chapters/chapter_04/index.html",
-    "title": "第四章網路資源",
+    "title": "第4章網路資源",
     "section": "",
     "text": "註解編號\n連結\n附註說明\n\n\n\n\n4-1\nhttps://github.com/dotnet/interactive\n\n\n\n4-2\nhttps://jupyter.org\n\n\n\n4-3\nhttps://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode\nPolyglot Notebooks擴充套件下載網頁\n\n\n4-4\nhttps://code.visualstudio.com/docs/languages/polyglot\nVisual Studio Code的Polyglot Notebooks擴充套件官方說明\n\n\n4-5\nhttps://github.com/zufuliu/notepad2\n有支援 C#, F#, ASP .NET 的程式碼syntax highlight的開源notepad2 分支版本\n\n\n4-6\nhttps://github.com/dotnet/interactive/blob/main/docs/kernels-overview.md\n.NET Interactive的Kernel機制解說"
   },
   {
-    "objectID": "chapters/chapter_04/index.html#需安裝軟體",
-    "href": "chapters/chapter_04/index.html#需安裝軟體",
-    "title": "第四章網路資源",
-    "section": "需安裝軟體",
-    "text": "需安裝軟體\n\n.NET 6 SDK\nVisual Studio Code\nVisual Studio Code的C#擴充套件。\nVisual Studio Code的Polyglot Notebooks擴充套件。\nPowerShell Core (v7.+)"
-  },
-  {
-    "objectID": "chapters/chapter_04/index.html#實做練習列表",
-    "href": "chapters/chapter_04/index.html#實做練習列表",
-    "title": "第四章網路資源",
-    "section": "實做練習列表",
-    "text": "實做練習列表\n\n使用 Visual Studio Code 和 Polyglotm Notebooks 擴充套件測試Grain的RPC方法實做"
+    "objectID": "chapters/chapter_04/index.html#polyglot-notebook實做範例",
+    "href": "chapters/chapter_04/index.html#polyglot-notebook實做範例",
+    "title": "第4章網路資源",
+    "section": "Polyglot Notebook實做範例",
+    "text": "Polyglot Notebook實做範例\n\n需安裝軟體\n\n.NET 6 SDK\nVisual Studio Code\nVisual Studio Code的C#擴充套件。\nVisual Studio Code的Polyglot Notebooks擴充套件。\nPowerShell Core (v7.+)\n\n\n\n範例程式碼與建置步驟解說\n\n使用 Visual Studio Code 和 Polyglot Notebooks 擴充套件測試Grain的RPC方法實做"
   },
   {
     "objectID": "chapters/chapter_02/index.html",
     "href": "chapters/chapter_02/index.html",
-    "title": "第二章網路資源",
+    "title": "第2章網路資源",
     "section": "",
     "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n2-1\nhttps://www.brianstorti.com/the-actor-model\n\n\n\n2-2\nhttps://www.developer.com/design/down-and-dirty-understanding-the-actor-model/"
   },
   {
     "objectID": "chapters/chapter_01/index.html",
     "href": "chapters/chapter_01/index.html",
-    "title": "第一章網路資源",
+    "title": "第1章網路資源",
     "section": "",
-    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n1-1\nhttp://aka.ms/orleans\nMicrosoft Orleans GitHub\n\n\n1-2\nhttps://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-7-preview-1/\nBlog announcement\n\n\n1-3\nhttps://youtu.be/-4BelRbFOVo\nNext Steps for Distributed Programming with .NET and Orleans\n\n\n1-4\nhttps://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out\n\n\n\n\n\n\n相關線上內容\n\nMicrosoft Orleans和其他類似框架的比較"
+    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n1-1\nhttp://aka.ms/orleans\nMicrosoft Orleans GitHub\n\n\n1-2\nhttps://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-7-preview-1/\nBlog announcement\n\n\n1-3\nhttps://youtu.be/-4BelRbFOVo\nNext Steps for Distributed Programming with .NET and Orleans\n\n\n1-4\nhttps://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out\n\n\n\n\n\n\n線上內容\n\nMicrosoft Orleans和其他類似框架的比較"
   },
   {
     "objectID": "chapters/chapter_03/index.html",
     "href": "chapters/chapter_03/index.html",
-    "title": "第三章網路資源",
+    "title": "第3章網路資源",
     "section": "",
     "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n3-1\nhttps://learn.microsoft.com/dotnet/orleans/overview#what-are-grains\n\n\n\n3-2\nhttps://learn.microsoft.com/dotnet/api/orleans.grain\nGrain類別的API文件\n\n\n3-3\nhttps://en.wikipedia.org/wiki/Plain_old_CLR_object\nPOCO 定義\n\n\n3-4\nhttps://learn.microsoft.com/dotnet/api/system.threading.tasks.task\nTask的API文件\n\n\n3-5\nhttps://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1\nTask&lt;T&gt;的API文件\n\n\n3-6\nhttps://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask\nValueTask的API文件\n\n\n3-7\nhttps://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1\nValueTask&lt;T&gt;的API文件\n\n\n3-8\nhttps://learn.microsoft.com/dotnet/api/orleans.igrainwithguidkey\nIGrainWithGuidKey的API文件\n\n\n3-9\nhttps://learn.microsoft.com/dotnet/api/orleans.igrainwithintegerkey\nIGrainWithIntegerKey的API文件\n\n\n3-10\nhttps://learn.microsoft.com/dotnet/api/orleans.igrainwithstringkey\nIGrainWithStringKey的API文件\n\n\n3-11\nhttps://learn.microsoft.com/dotnet/api/orleans.igrainwithguidcompoundkey\nIGrainWithGuidCompoundKey的API文件\n\n\n3-12\nhttps://learn.microsoft.com/dotnet/api/orleans.igrainwithintegercompoundkey\nIGrainWithIntegerCompoundKey的API文件\n\n\n3-13\nhttps://learn.microsoft.com/dotnet/orleans/grains/stateless-worker-grains\nStateless Worker Grains\n\n\n3-14\nhttps://learn.microsoft.com/dotnet/standard/serialization/\n\n\n\n3-15\nhttps://learn.microsoft.com/dotnet/orleans/resources/nuget-packages#grain-storage-providers"
   },
   {
     "objectID": "chapters/chapter_05/index.html",
     "href": "chapters/chapter_05/index.html",
-    "title": "第五章網路資源",
+    "title": "第5章網路資源",
     "section": "",
     "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n5-1\nhttps://learn.microsoft.com/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-folder\n\n\n\n5-2\nhttps://learn.microsoft.com/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer\n\n\n\n5-3\nhttps://code.visualstudio.com/docs/getstarted/userinterface#_explorer\n\n\n\n5-4\nhttps://learn.microsoft.com/en-us/dotnet/standard/class-library-overview\n\n\n\n5-5\nhttps://learn.microsoft.com/dotnet/standard/frameworks\n\n\n\n5-6\nhttps://learn.microsoft.com/dotnet/standard/net-standard\n\n\n\n5-7\nhttps://learn.microsoft.com/visualstudio/ide/managing-references-in-a-project#project-to-project-references\n\n\n\n5-8\nhttps://learn.microsoft.com/dotnet/orleans/resources/nuget-packages?pivots=orleans-3-x#clustering-providers-1\n\n\n\n5-9\nhttps://www.nuget.org/packages/Microsoft.Orleans.Core.Abstractions\n\n\n\n5-10\nhttps://www.nuget.org/packages/Microsoft.Orleans.CodeGenerator.MSBuild\n\n\n\n5-11\nhttps://www.nuget.org/packages/Microsoft.Orleans.Core\n\n\n\n5-12\nhttps://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-6.0\n\n\n\n5-13\nhttps://wwww.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions\n\n\n\n5-14\nhttps://www.nuget.org/packages/Microsoft.Orleans.Server\n\n\n\n5-15\nhttps://www.nuget.org/packages/Microsoft.Orleans.Persistence.AdoNet\n\n\n\n5-16\nhttps://www.nuget.org/packages/Microsoft.Orleans.Client\n\n\n\n5-17\nhttps://grpc.io\n\n\n\n5-18\nhttps://proto.actor/docs/what-is-protoactor\n\n\n\n5-19\nhttps://github.com/dotnet/orleans/blob/3.x/src/Orleans.CodeGenerator.MSBuild/build/Microsoft.Orleans.CodeGenerator.MSBuild.targets\nMSBuild Task程式碼\n\n\n5-20\nhttps://learn.microsoft.com/dotnet/api/orleans.applicationpartmanagerextensions.addapplicationpart\n\n\n\n5-21\nhttps://learn.microsoft.com/dotnet/api/orleans.hosting.applicationpartmanagercodegenextensions.withcodegeneration\n\n\n\n5-22\nhttps://serilog.net\n\n\n\n5-23\nhttps://learn.microsoft.com/dotnet/api/orleans.codegeneration.knowntypeattribute\n\n\n\n5-24\nhttps://learn.microsoft.com/dotnet/api/orleans.clientbuilderextensions.uselocalhostclustering\nClient端的 UseLocalhostClustering() API\n\n\n5-25\nhttps://learn.microsoft.com/dotnet/api/orleans.hosting.corehostingextensions.uselocalhostclustering\nServer端的 UseLocalhostClustering() API\n\n\n5-26\nhttps://learn.microsoft.com/en-us/dotnet/api/orleans.hosting.silohostbuilder?view=orleans-3.0\nSiloHostBuilder\n\n\n5-27\nhttps://learn.microsoft.com/en-us/dotnet/api/system.console.cancelkeypress?view=net-6.0\nConsole.CancelKeyPress 事件的API文件"
+  },
+  {
+    "objectID": "chapters/chapter_07/index.html",
+    "href": "chapters/chapter_07/index.html",
+    "title": "第7章網路資源",
+    "section": "",
+    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n7-1\nhttps://learn.microsoft.com/dotnet/core/extensions/dependency-injection\n\n\n\n7-2\nhttps://www.nuget.org/packages/Microsoft.Extensions.Logging/\n\n\n\n7-3\nhttps://github.com/rawsonm88/Cowsay\nCowsay GitHub專案網址\n\n\n7-4\nhttps://github.com/rawsonm88/Cowsay/blob/master/Cowsay.Abstractions/ICattleFarmer.cs\nICattleFarmer 定義\n\n\n7-5\nhttps://learn.microsoft.com/dotnet/api/orleans.hosting.isilobuilder.configureservices?view=orleans-3.0\n\n\n\n7-6\nhttps://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.hostbuilder.configureservices\n\n\n\n7-7\nhttps://www.nuget.org/packages/Moq\n\n\n\n7-8\nhttps://www.nuget.org/packages/ILogger.Moq\n\n\n\n7-9\nhttps://github.com/adrianiftode/Moq.ILogger#examples\nILogger.Moq 套件的使用範例\n\n\n7-10\nhttps://github.com/rawsonm88/Cowsay/blob/f1f3dd153e3d1c9b951bfeafbcf575ea5d4fdef7/Cowsay.Extensions.DependencyInjection/ServiceCollectionExtensions.cs#L13"
   },
   {
     "objectID": "chapters/chapter_05/online_helloworld_lab.html",
