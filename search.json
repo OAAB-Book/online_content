@@ -91,6 +91,13 @@
     "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n9-1\nhttps://www.nuget.org/packages/Microsoft.Orleans.Persistence.AzureStorage/3.7.1\n\n\n\n9-2\nhttps://github.com/Azure/Azurite\n\n\n\n9-3\nhttps://www.nuget.org/packages/Microsoft.Orleans.Server\n\n\n\n9-4\nhttps://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.generichostextensions.useorleans?view=orleans-3.0\n\n\n\n9-5\nhttps://learn.microsoft.com/dotnet/api/orleans.hosting.azuretablesilobuilderextensions.addazuretablegrainstorage?view=orleans-3.0\n\n\n\n9-6\nhttps://learn.microsoft.com/dotnet/api/orleans.persistence.azurestorage.azurestorageoperationoptions.configuretableserviceclient?view=orleans-3.0\n\n\n\n9-7\nhttps://learn.microsoft.com/dotnet/api/orleans.configuration.azuretablestorageoptions?view=orleans-3.0\n\n\n\n9-8\nhttps://learn.microsoft.com/dotnet/api/orleans.hosting.azureblobsilobuilderextensions.addazureblobgrainstorage?view=orleans-3.0\n\n\n\n9-9\nhttps://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview\n\n\n\n9-10\nhttps://learn.microsoft.com/dotnet/azure/sdk/authentication-azure-hosted-apps\n\n\n\n9-11\nhttps://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential\n\n\n\n9-12\nhttps://www.nuget.org/packages/Azure.Identity\n\n\n\n9-13\nhttps://learn.microsoft.com/dotnet/api/orleans.persistence.azurestorage.azurestorageoperationoptions.configuretableserviceclient?view=orleans-3.0#orleans-persistence-azurestorage-azurestorageoperationoptions-configuretableserviceclient(system-uri-azure-azuresascredential)\n\n\n\n9-14\nhttps://learn.microsoft.com/dotnet/api/orleans.configuration.azureblobstorageoptions.configureblobserviceclient?view=orleans-3.0#orleans-configuration-azureblobstorageoptions-configureblobserviceclient(system-uri-azure-azuresascredential)"
   },
   {
+    "objectID": "chapters/chapter_11/index.html",
+    "href": "chapters/chapter_11/index.html",
+    "title": "第11章網路資源",
+    "section": "",
+    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n11-1\nhttps://learn.microsoft.com/en-us/dotnet/api/orleans.iclusterclient?view=orleans-3.0\n\n\n\n11-2\nhttps://learn.microsoft.com/dotnet/api/orleans.grain.grainfactory\n\n\n\n11-3\nhttps://learn.microsoft.com/dotnet/api/system.serializableattribute\n\n\n\n11-4\nhttps://learn.microsoft.com/dotnet/api/orleans.testinghost.testcluster\n\n\n\n11-5\nhttps://learn.microsoft.com/en-us/dotnet/core/porting/net-framework-tech-unavailable#application-domains"
+  },
+  {
     "objectID": "chapters/chapter_05/online_helloworld_lab.html",
     "href": "chapters/chapter_05/online_helloworld_lab.html",
     "title": "使用 .NET 命令列程式執行Orleans的Grain實作",
