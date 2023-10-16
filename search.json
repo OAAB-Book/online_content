@@ -105,6 +105,13 @@
     "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n11-1\nhttps://learn.microsoft.com/en-us/dotnet/api/orleans.iclusterclient?view=orleans-3.0\n\n\n\n11-2\nhttps://learn.microsoft.com/dotnet/api/orleans.grain.grainfactory\n\n\n\n11-3\nhttps://learn.microsoft.com/dotnet/api/system.serializableattribute\n\n\n\n11-4\nhttps://learn.microsoft.com/dotnet/api/orleans.testinghost.testcluster\n\n\n\n11-5\nhttps://learn.microsoft.com/en-us/dotnet/core/porting/net-framework-tech-unavailable#application-domains"
   },
   {
+    "objectID": "chapters/chapter_13/index.html",
+    "href": "chapters/chapter_13/index.html",
+    "title": "第13章網路資源",
+    "section": "",
+    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n13-1\nhttps://github.com/dotnet/orleans/blob/3.x/src/Orleans.Runtime/Scheduler/ActivationTaskScheduler.cs\n\n\n\n13-2\nhttps://learn.microsoft.com/dotnet/api/system.threading.tasks.taskscheduler\n\n\n\n13-3\nhttps://learn.microsoft.com/dotnet/orleans/implementation/scheduler\n\n\n\n13-4\nhttps://learn.microsoft.com/dotnet/api/orleans.concurrency.alwaysinterleaveattribute\n\n\n\n13-5\nhttps://learn.microsoft.com/dotnet/api/orleans.reentrancy.reentrantattribute\n\n\n\n13-6\nhttps://learn.microsoft.com/dotnet/api/orleans.concurrency.mayinterleaveattribute\n\n\n\n13-7\nhttps://learn.microsoft.com/dotnet/api/orleans.concurrency.onewayattribute?view=orleans-3.0"
+  },
+  {
     "objectID": "chapters/chapter_05/online_helloworld_lab.html",
     "href": "chapters/chapter_05/online_helloworld_lab.html",
     "title": "使用 .NET 命令列程式執行Orleans的Grain實作",
