@@ -135,9 +135,9 @@
   {
     "objectID": "chapters/chapter_17/index.html",
     "href": "chapters/chapter_17/index.html",
-    "title": "第16章網路資源",
+    "title": "第17章網路資源",
     "section": "",
-    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n17-1\nhttps://learn.microsoft.com/dotnet/api/orleans.services.igrainservice?view=orleans-3.0\n\n\n\n17-2\nhttps://learn.microsoft.com/dotnet/api/orleans.runtime.grainservice?view=orleans-3.0\n\n\n\n17-3\n&lt;&gt;"
+    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n17-1\nhttps://learn.microsoft.com/dotnet/api/orleans.services.igrainservice?view=orleans-3.0\n\n\n\n17-2\nhttps://learn.microsoft.com/dotnet/api/orleans.runtime.grainservice?view=orleans-3.0\n\n\n\n17-3\nhttps://learn.microsoft.com/dotnet/api/orleans.hosting.grainservicessilobuilderextensions.addgrainservice?view=orleans-3.0\n\n\n\n17-4\nhttps://learn.microsoft.com/dotnet/api/orleans.runtime.services.grainserviceclient-1?view=orleans-3.0\n\n\n\n17-5\nhttps://github.com/dotnet/orleans/blob/main/src/Orleans.Reminders/ReminderService/LocalReminderService.cs\n\n\n\n17-6\nhttps://github.com/dotnet/orleans/issues/6763#issuecomment-701700176\n\n\n\n17-7\nhttps://learn.microsoft.com/dotnet/api/orleans.concurrency.statelessworkerattribute?view=orleans-3.0\n\n\n\n17-8\nhttps://learn.microsoft.com/dotnet/api/orleans.concurrency.statelessworkerattribute.-ctor?view=orleans-3.0#orleans-concurrency-statelessworkerattribute-ctor(system-int32)\n\n\n\n17-9\nhttps://github.com/dotnet/orleans/issues/5283"
   },
   {
     "objectID": "chapters/chapter_05/online_helloworld_lab.html",
