@@ -147,6 +147,13 @@
     "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n17-1\nhttps://learn.microsoft.com/dotnet/api/orleans.services.igrainservice?view=orleans-3.0\n\n\n\n17-2\nhttps://learn.microsoft.com/dotnet/api/orleans.runtime.grainservice?view=orleans-3.0\n\n\n\n17-3\nhttps://learn.microsoft.com/dotnet/api/orleans.hosting.grainservicessilobuilderextensions.addgrainservice?view=orleans-3.0\n\n\n\n17-4\nhttps://learn.microsoft.com/dotnet/api/orleans.runtime.services.grainserviceclient-1?view=orleans-3.0\n\n\n\n17-5\nhttps://github.com/dotnet/orleans/blob/main/src/Orleans.Reminders/ReminderService/LocalReminderService.cs\n\n\n\n17-6\nhttps://github.com/dotnet/orleans/issues/6763#issuecomment-701700176\n\n\n\n17-7\nhttps://learn.microsoft.com/dotnet/api/orleans.concurrency.statelessworkerattribute?view=orleans-3.0\n\n\n\n17-8\nhttps://learn.microsoft.com/dotnet/api/orleans.concurrency.statelessworkerattribute.-ctor?view=orleans-3.0#orleans-concurrency-statelessworkerattribute-ctor(system-int32)\n\n\n\n17-9\nhttps://github.com/dotnet/orleans/issues/5283"
   },
   {
+    "objectID": "chapters/chapter_19/index.html",
+    "href": "chapters/chapter_19/index.html",
+    "title": "第19章網路資源",
+    "section": "",
+    "text": "相關網路連結\n\n\n\n註解編號\n連結\n附註說明\n\n\n\n\n19-1\nhttps://github.com/App-vNext/Polly\n\n\n\n19-2\nhttps://www.nuget.org/packages/Polly\n\n\n\n19-3\nhttps://github.com/App-vNext/Polly/wiki/Retry\n\n\n\n19-4\nhttps://github.com/App-vNext/Polly/wiki/Advanced-Circuit-Breaker\n\n\n\n19-5\nhttps://github.com/App-vNext/Polly/wiki/Timeout\n\n\n\n19-6\nhttps://github.com/App-vNext/Polly/blob/master/src/Polly/Retry/AsyncRetryPolicy.cs\n\n\n\n19-7\nhttps://learn.microsoft.com/dotnet/api/orleans.runtime.silounavailableexception?view=orleans-3.0\n\n\n\n19-8\nhttps://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly\n\n\n\n19-9\nhttps://en.wikipedia.org/wiki/Exponential_backoff\n\n\n\n\n\n\n範例程式碼\n\nPolly 的 Retry Policy 套用在命令列程式的範例專案：https://github.com/OAAB-Book/ConsoleDemoPolly"
+  },
+  {
     "objectID": "chapters/chapter_05/online_helloworld_lab.html",
     "href": "chapters/chapter_05/online_helloworld_lab.html",
     "title": "使用 .NET 命令列程式執行Orleans的Grain實作",

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Microsoft Orleans：加速Azure的ASP.NET Core雲端應用開發推進器 – index</title>
+<title>Microsoft Orleans：加速Azure的ASP.NET Core雲端應用開發推進器 - 第19章網路資源</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,6 +64,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Microsoft Orleans：加速Azure的ASP.NET Core雲端應用開發推進器 - 第19章網路資源">
+<meta property="og:site-name" content="Microsoft Orleans：加速Azure的ASP.NET Core雲端應用開發推進器">
+<meta property="og:locale" content="zh_TW">
 </head>
 
 <body class="nav-sidebar floating fullcontent">
@@ -75,9 +78,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      線上內容
-      </li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/chapter_01/index.html">紙本章節列表</a></li><li class="breadcrumb-item"><a href="../../chapters/chapter_19/index.html">第19章</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -223,6 +224,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">第18章</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/chapter_19/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">第19章</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -234,10 +241,90 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">第19章網路資源</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="相關網路連結" class="level1">
+<h1>相關網路連結</h1>
+<table class="table">
+<thead>
+<tr class="header">
+<th><strong>註解編號</strong></th>
+<th>連結</th>
+<th>附註說明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>19-1</strong></td>
+<td><a href="https://github.com/App-vNext/Polly" class="uri">https://github.com/App-vNext/Polly</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>19-2</strong></td>
+<td><a href="https://www.nuget.org/packages/Polly" class="uri">https://www.nuget.org/packages/Polly</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>19-3</strong></td>
+<td><a href="https://github.com/App-vNext/Polly/wiki/Retry" class="uri">https://github.com/App-vNext/Polly/wiki/Retry</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>19-4</strong></td>
+<td><a href="https://github.com/App-vNext/Polly/wiki/Advanced-Circuit-Breaker" class="uri">https://github.com/App-vNext/Polly/wiki/Advanced-Circuit-Breaker</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>19-5</strong></td>
+<td><a href="https://github.com/App-vNext/Polly/wiki/Timeout" class="uri">https://github.com/App-vNext/Polly/wiki/Timeout</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>19-6</strong></td>
+<td><a href="https://github.com/App-vNext/Polly/blob/master/src/Polly/Retry/AsyncRetryPolicy.cs" class="uri">https://github.com/App-vNext/Polly/blob/master/src/Polly/Retry/AsyncRetryPolicy.cs</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>19-7</strong></td>
+<td><a href="https://learn.microsoft.com/dotnet/api/orleans.runtime.silounavailableexception?view=orleans-3.0" class="uri">https://learn.microsoft.com/dotnet/api/orleans.runtime.silounavailableexception?view=orleans-3.0</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>19-8</strong></td>
+<td><a href="https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly" class="uri">https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>19-9</strong></td>
+<td><a href="https://en.wikipedia.org/wiki/Exponential_backoff" class="uri">https://en.wikipedia.org/wiki/Exponential_backoff</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="範例程式碼" class="level1">
+<h1>範例程式碼</h1>
+<ul>
+<li>Polly 的 Retry Policy 套用在命令列程式的範例專案：<a href="https://github.com/OAAB-Book/ConsoleDemoPolly" class="uri">https://github.com/OAAB-Book/ConsoleDemoPolly</a></li>
+</ul>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
